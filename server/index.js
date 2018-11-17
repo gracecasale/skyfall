@@ -1,6 +1,9 @@
 const express = require('express');
+const dotenv = require('dotenv');
 const app = express();
+dotenv.config( {path: __dirname + '/.env'}); //this reads variables in .env file and adds them to process.env
 const port = process.env.PORT || 4000;
+const apiKey = process.env.API_KEY;
 
 app.get('/', (request, response) => {
     response.status(200);
