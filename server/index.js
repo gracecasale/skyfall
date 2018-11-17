@@ -7,6 +7,12 @@ dotenv.config({ path: __dirname + '/.env' }); //this reads variables in .env fil
 const port = process.env.PORT || 4000;
 const apiKey = process.env.API_KEY;
 
+//import middleware (powerups!)
+const helmet = require('helmet');
+
+//wire up our middleware (powerups!)
+app.use(helmet());
+
 app.get('/', (request, response) => {
     response.status(200);
     response.send('Yayyy!!! It works!');
