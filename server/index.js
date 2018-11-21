@@ -1,6 +1,7 @@
 const express = require('express');
 const dotenv = require('dotenv');
 const axios = require('axios');
+const path = require('path');
 const app = express();
 dotenv.config({ path: __dirname + '/.env' }); //this reads variables in .env file and 
 //adds them to process.env
@@ -12,11 +13,8 @@ const helmet = require('helmet');
 
 //wire up our middleware (powerups!)
 app.use(helmet());
-
-app.get('/', (request, response) => {
-    response.status(200);
-    response.send('Yayyy!!! It works!');
-});
+const staticPath = path.resolve(__dirname, '../client/build'); //__dirname makes sure we start with the current file
+app.use(express.static(staticPath));
 
 app.get('/forecast/coords/:lat,:lon', (req, res) => {
     // const lat = req.params.lat; <-- can also be written this way
