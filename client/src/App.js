@@ -9,9 +9,14 @@ class App extends Component {
       weather: {},
       error: null
     }
+    this.fetchWeather = this.fetchWeather.bind(this);
   }
   componentDidMount() {
-    axios.get('/forecast/coords/0,0')
+    this.fetchWeather(0,0);
+  }
+  fetchGeoLocation() { }
+  fetchWeather(lat, lon) {
+    axios.get(`/forecast/coords/${lat}, ${lon}`)
       .then(response => {
         this.setState({
           weather: response.data.weather
@@ -26,7 +31,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        It works!
+        <pre>{JSON.stringify(this.state.weather, null, 2)}</pre>
       </div>
     );
   }
