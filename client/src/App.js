@@ -10,20 +10,42 @@ class App extends Component {
     this.state = {
       weather: {},
       error: null,
-      loading: true
+      loading: true,
+      lat: '',
+      lon: ''
     }
+    this.updateWeather = this.updateWeather.bind(this);
+  }
+  updateWeather(e) {
+    e.preventDefault();
+    const { lat, lon } = this.state;
+    fetchWeather(lat, lon)
+      .then(weather => { 
+        this.setState({
+          weather: weather
+        })
+      })
+      .catch(err => { 
+        this.setState ({
+          error: err
+        })
+      });
   }
   componentDidMount() {
     getCurrentPosition()
       .then(position => {
         const lat = position.coords.latitude;
         const lon = position.coords.longitude;
+        this.setState({
+          lat: lat,
+          lon: lon
+        });
         return fetchWeather(lat, lon);
       })
       .then(weather => {
         this.setState({
           weather: weather,
-          loading: false 
+          loading: false
         })
       })
       .catch(err => {
@@ -36,19 +58,25 @@ class App extends Component {
 
   isGeoError(err) {
     return err && err.code && err.message;
-  } 
-  
+  }
+
   render() {
-    const { loading, weather, error } = this.state;
-    if(loading) {
-      return  <Loader type="Oval" color="gray" height={80} width={80} />
+    const { loading, weather, error, lat, lon } = this.state;
+    if (loading) {
+      return <Loader type="Oval" color="gray" height={80} width={80} />
     }
     if (error && !this.isGeoError(error)) {
       return <h1>Please try again later...</h1>
     }
-     return (
+    return (
       <div>
-
+        <form onSubmit={this.updateWeather}>
+          <input type="text" value={lat}
+            onChange={e => this.setState({ lat: e.target.value })} placeholder="Latitude: " required/>
+          <input type="text" value={lon}
+            onChange={e => this.setState({ lon: e.target.value })} placeholder="Longitude: " required/>
+          <button type="submit">Go!</button>
+        </form>
         <pre>{JSON.stringify(this.state.weather, null, 2)}</pre>
       </div>
     );
