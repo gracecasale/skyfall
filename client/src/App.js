@@ -28,18 +28,27 @@ class App extends Component {
       })
       .catch(err => {
         this.setState({
-          error: err
+          error: err,
+          loading: false
         });
       });
   }
+
+  isGeoError(err) {
+    return err && err.code && err.message;
+  } 
   
   render() {
     const { loading, weather, error } = this.state;
     if(loading) {
       return  <Loader type="Oval" color="gray" height={80} width={80} />
     }
+    if (error && !this.isGeoError(error)) {
+      return <h1>Please try again later...</h1>
+    }
      return (
-      <div className="App">
+      <div>
+
         <pre>{JSON.stringify(this.state.weather, null, 2)}</pre>
       </div>
     );
