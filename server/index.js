@@ -30,7 +30,7 @@ app.get('/forecast/coords/:lat,:lon', (req, res) => {
             });
         })
         .catch(err => {
-            res.status(err.status || 500);
+            res.status(err.response.status || 500);
             res.send(err.message || "Uh oh");
         })
 });
