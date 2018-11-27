@@ -71,13 +71,20 @@ class App extends Component {
     return (
       <div>
         <form onSubmit={this.updateWeather}>
-          <input type="text" value={lat}
-            onChange={e => this.setState({ lat: e.target.value })} placeholder="Latitude: " required/>
-          <input type="text" value={lon}
-            onChange={e => this.setState({ lon: e.target.value })} placeholder="Longitude: " required/>
+          <input type="number" value={lat}
+            onChange={e => this.setState({ lat: e.target.value })} placeholder="Latitude: " 
+            required
+            min="-90"
+            max="90"
+            />
+          <input type="number" value={lon}
+            onChange={e => this.setState({ lon: e.target.value })} placeholder="Longitude: " 
+            required
+            min="-90"
+            max="90"/>
           <button type="submit">Go!</button>
         </form>
-        <pre>{JSON.stringify(this.state.weather, null, 2)}</pre>
+        <pre>{JSON.stringify(weather, null, 2)}</pre>
       </div>
     );
   }
