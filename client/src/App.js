@@ -2,6 +2,9 @@ import React, { Component } from 'react';
 import { fetchWeather } from './helpers';
 import { getCurrentPosition } from '@blinkmobile/geolocation';
 import Loader from 'react-loader-spinner';
+import DailyWeather from './DailyWeather';
+import HourlyWeather from './HourlyWeather';
+import CurrentWeather from './CurrentWeather';
 import './App.css';
 
 class App extends Component {
@@ -20,13 +23,13 @@ class App extends Component {
     e.preventDefault();
     const { lat, lon } = this.state;
     fetchWeather(lat, lon)
-      .then(weather => { 
+      .then(weather => {
         this.setState({
           weather: weather
         })
       })
-      .catch(err => { 
-        this.setState ({
+      .catch(err => {
+        this.setState({
           error: err
         })
       });
@@ -72,19 +75,21 @@ class App extends Component {
       <div>
         <form onSubmit={this.updateWeather}>
           <input type="number" value={lat}
-            onChange={e => this.setState({ lat: e.target.value })} placeholder="Latitude: " 
+            onChange={e => this.setState({ lat: e.target.value })} placeholder="Latitude: "
             required
             min="-90"
             max="90"
-            />
+          />
           <input type="number" value={lon}
-            onChange={e => this.setState({ lon: e.target.value })} placeholder="Longitude: " 
+            onChange={e => this.setState({ lon: e.target.value })} placeholder="Longitude: "
             required
             min="-90"
-            max="90"/>
+            max="90" />
           <button type="submit">Go!</button>
         </form>
-        <pre>{JSON.stringify(weather, null, 2)}</pre>
+        <DailyWeather data={weather.daily} />
+        <HourlyWeather data={weather.hourly} />
+        <CurrentWeather data={weather.currently} />
       </div>
     );
   }
