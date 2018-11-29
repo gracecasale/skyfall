@@ -1,3 +1,8 @@
-.current-weather {
+.cw-container {
+    height: 18px;
+    width: 18px;
+}
+
+.cw-text {
     color: red;
 }

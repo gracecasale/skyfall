@@ -4,7 +4,9 @@ import './CurrentWeather.css';
 function CurrentWeather(props) {
     const {apparentTemperature} = props.data
     return (
-        <h1 className="current-weather">The temperature is currently: {apparentTemperature}&deg;F</h1>
+        <section className="cw-container">
+        <p className="cw-text">{apparentTemperature}&deg;F</p>
+        </section>
     )
 }
 
