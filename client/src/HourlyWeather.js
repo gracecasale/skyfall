@@ -1,4 +1,6 @@
 import React from 'react';
+import './HourlyWeather.css';
+
 
 const singleHour = hour =>
     <p key={hour.time}>
@@ -12,7 +14,7 @@ function HourlyWeather(props) {
     const items = threeHours
         .map(singleHour)
     return (
-        <div>
+        <div className="hw-container">
             {items}
         </div>
     )
