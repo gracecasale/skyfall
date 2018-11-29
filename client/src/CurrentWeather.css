@@ -1,8 +1,23 @@
+body {
+    margin: 15px;
+}
+
 .cw-container {
-    height: 18px;
-    width: 18px;
+    height: 300px;
+    width: 300px;
+    background-color: lightblue;
+    display: inline-block;
+    
+    
 }
 
 .cw-text {
-    color: red;
+    color: white;
+    font-size: 50px;
+    font-weight: bold;
+}
+
+.cw-icon {
+    color: blue;
+    height: 60px;
 }
