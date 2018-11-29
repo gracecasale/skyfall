@@ -9,9 +9,9 @@ function CurrentWeather(props) {
             <p className="cw-temp">{apparentTemperature}&deg;F</p>
             <img src={cloudyDay} alt="icon" className="cw-icon" />
             <div className="cw-text">
-                <p>{summary}</p>
-                <p>{precipProbability}</p>
-                <p>{humidity}</p>
+                <p className="cw-text">{summary}</p>
+                <p className="cw-text">Precipitation: {precipProbability}%</p>
+                <p className="cw-text">Humidity: {humidity}%</p>
             </div>
         </section>
     )

@@ -3,27 +3,34 @@ body {
 }
 
 .cw-container {
-    height: 500px;
+    height: 400px;
     width: 300px;
     background-color: lightblue;
+    border: solid black 5px;
     display: inline-block;
     text-align: center;
+    padding-top: 10px;
 }
 
 .cw-temp {
     color: white;
-    font-size: 60px;
+    font-size: 70px;
     font-weight: bolder;
     font-family: 'Enriqueta', serif;
+    padding: 15px;
 }
 
 .cw-icon {
     height: 90px;
+    padding: 5px;
+}
+
+.cw-icon:hover {
 }
 
 .cw-text {
     color: black;
-    font-size: 30px;
-    font-family: 'Fira Sans Extra Condensed', sans-serif;
-
+    font-size: 20px;
+    padding: 5px;
+    font-family: 'Fira Sans Condensed', sans-serif;
 }
