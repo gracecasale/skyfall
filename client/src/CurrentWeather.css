@@ -3,21 +3,27 @@ body {
 }
 
 .cw-container {
-    height: 300px;
+    height: 500px;
     width: 300px;
     background-color: lightblue;
     display: inline-block;
-    
-    
+    text-align: center;
 }
 
-.cw-text {
+.cw-temp {
     color: white;
-    font-size: 50px;
-    font-weight: bold;
+    font-size: 60px;
+    font-weight: bolder;
+    font-family: 'Enriqueta', serif;
 }
 
 .cw-icon {
-    color: blue;
-    height: 60px;
+    height: 90px;
+}
+
+.cw-text {
+    color: black;
+    font-size: 30px;
+    font-family: 'Fira Sans Extra Condensed', sans-serif;
+
 }

@@ -3,11 +3,16 @@ import './CurrentWeather.css';
 import cloudyDay from './svg/wi-day-cloudy.svg';
 
 function CurrentWeather(props) {
-    const {apparentTemperature} = props.data
+    const { apparentTemperature, summary, precipProbability, humidity } = props.data
     return (
         <section className="cw-container">
-        <p className="cw-text">{apparentTemperature}&deg;F</p>
-        <img src={cloudyDay} className="cw-icon"/>
+            <p className="cw-temp">{apparentTemperature}&deg;F</p>
+            <img src={cloudyDay} alt="icon" className="cw-icon" />
+            <div className="cw-text">
+                <p>{summary}</p>
+                <p>{precipProbability}</p>
+                <p>{humidity}</p>
+            </div>
         </section>
     )
 }
