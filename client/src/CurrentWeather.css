@@ -5,7 +5,7 @@ body {
 .cw-container {
     height: 400px;
     width: 300px;
-    background-color: lightblue;
+    background-color: #aed9d7;
     border: solid black 5px;
     display: inline-block;
     text-align: center;

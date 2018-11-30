@@ -1,11 +1,15 @@
-.hw-container{
+.hw-container {
     height: 400px;
         width: 300px;
-        background-color: lightgoldenrodyellow;
+        background-color: #414f66;
+        color: white;
         border: solid black 5px;
         display: inline-block;
         text-align: center;
-        padding-top: 10px;
         font-family: 'Fira Sans Condensed', sans-serif;
+    }
+
+    .hw-container-item {
+        margin: 25px;
     }
 

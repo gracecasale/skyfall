@@ -1,11 +1,10 @@
 .dw-container{
 height: 400px;
     width: 300px;
-    background-color: lightgrey;
+    background-color: #f2c396;
     border: solid black 5px;
     display: inline-block;
     text-align: center;
     padding-top: 10px;
     font-family: 'Fira Sans Condensed', sans-serif;
-
 }
