@@ -9,8 +9,8 @@ const singleHour = hour =>
 
 function HourlyWeather(props) {
     const { data } = props.data;
-    const threeHours = data.slice(0, 4);
-    const items = threeHours
+    const hours = data.filter((hour,index) => new Date(1000 * hour.time).getHours() % 6 === 0).slice(0,4)
+    const items = hours
         .map(singleHour)
     return (
         <div >
