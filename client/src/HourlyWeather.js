@@ -1,7 +1,6 @@
 import React from 'react';
 import './HourlyWeather.css';
 
-
 const singleHour = hour =>
     <p key={hour.time}>
         Temperature: {hour.apparentTemperature}&deg;F
@@ -10,12 +9,12 @@ const singleHour = hour =>
 
 function HourlyWeather(props) {
     const { data } = props.data;
-    const threeHours = data.slice(0, 3);
+    const threeHours = data.slice(0, 4);
     const items = threeHours
         .map(singleHour)
     return (
-        <div className="hw-container">
-            {items}
+        <div >
+            <p className="hw-container">{items}</p>
         </div>
     )
 }
