@@ -1,6 +1,6 @@
 import React from 'react';
 import './CurrentWeather.css';
-import cloudyDay from './svg/wi-day-cloudy.svg';
+import cloudyDay from './svg/cloudy.svg';
 
 function CurrentWeather(props) {
     const { apparentTemperature, summary, precipProbability, humidity } = props.data

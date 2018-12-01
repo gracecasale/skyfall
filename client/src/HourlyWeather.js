@@ -19,4 +19,4 @@ function HourlyWeather(props) {
     )
 }
 
-export default HourlyWeather;
+export default HourlyWeather; 
