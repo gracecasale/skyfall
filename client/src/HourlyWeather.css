@@ -1,5 +1,4 @@
 .hw-container {
-        height: 462px;
         width: 300px;
         background-color: #414f66;
         color: white;
@@ -26,19 +25,19 @@
     }
 
     .hw-container-item {
-        margin-top: 20px;
-        margin-bottom: 10px;
+      margin-top: 20px;
     }
 
     .hw-temp {
         color: white;
-        font-size: 30px;
+        font-size: 40px;
         font-weight: bolder;
         font-family: 'Enriqueta', serif;
         margin-bottom: 20px;
     }
 
     .hw-bands {
-    padding: 1;
+        height: 95px; 
+        padding: 20px;
     }
 
